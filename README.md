@@ -1,40 +1,58 @@
 # Premier League Standings Predictor
 
-Predicts final 2026-27 Premier League standings from Matchweek 1 results,
-using a Poisson goal-scoring model and Monte Carlo simulation of the rest
-of the season.
+Predicts final 2026-27 Premier League standings from real match data, using
+a **Dixon-Coles** goal-scoring model (Dixon & Coles, 1997 — the reference
+model in the football-forecasting literature) and Monte Carlo simulation of
+the rest of the season.
 
 ## How it works
 
-1. **Data (`data/week1_table.csv`)** — Matchweek 1 results/table, supplied
-   by the user (this environment could not reach live sports data sites,
-   so the numbers were pasted in directly).
+1. **Match data (`data/raw/`)** — Real match results from
+   football-data.co.uk: the last 3 completed Premier League seasons
+   (2023-24, 2024-25, 2025-26), this season's actual results so far
+   (`pl_2627.csv`), and two seasons of Championship results (used only to
+   seed newly promoted teams — see below).
 
-2. **Historical priors (`data/historical_priors.csv`)** — Since one match
-   is an extremely noisy signal on its own, each team's Week 1 attack/defense
-   rate is blended with a prior strength tier based on general Premier
-   League history through the 2024-25 season (the most recent season
-   reliably known to the model): "Elite" (recent title contenders),
-   "Strong" (regular top-6/European sides), "Mid-Upper", "Mid", and
-   "Lower/Promoted". **These priors are approximate, qualitative estimates
-   from general football knowledge, not verified live statistics** — treat
-   them as reasonable starting assumptions, not ground truth.
+2. **Cold-start priors (`src/backtest.py`: `_returning_team_priors` /
+   `_promoted_team_priors`, built on the same logic as `src/build_priors.py`)**
+   — every team needs a starting point for the model fit below:
+   - **Returning teams**: their average attack/defense rate across
+     whichever of the last 3 PL seasons they played in, each season
+     normalized by its own league-average goals/game.
+   - **Newly promoted teams** (Coventry City, Ipswich Town, Hull City for
+     2026-27): their Championship attack/defense rate translated into
+     PL-equivalent terms using a ratio derived from how the *previous*
+     promotion class (Leeds/Sunderland/Burnley) actually performed —
+     comparing their real Championship rates to their real PL rates —
+     averaged 50/50 with the flat baseline of what that class actually
+     achieved in the PL.
 
-3. **Strength ratings (`src/strength.py`)** — Team attack/defense strength
-   = a shrinkage-weighted blend of Week 1 rate and historical prior
-   (`SHRINKAGE_K` controls how much the single match is trusted vs. the
-   prior; default treats it as worth 1 game against a 6-game-equivalent
-   prior).
+3. **Dixon-Coles fit (`src/dixon_coles.py`)** — every team's attack/defense
+   strength, plus the league's home-advantage and low-score correlation
+   parameters, are fit jointly by maximum a posteriori (MAP) estimation
+   over the full match log:
+   - **Time decay**: each match is weighted `exp(-decay * days_ago)`
+     (half-life ~400 days), so recent results matter more without a
+     hand-picked season cutoff — this replaces manual season-weight
+     blending with something that just falls out of the likelihood.
+   - **Low-score correlation**: real home/away goals aren't quite
+     independent at low scores (0-0/1-1 are more common than independent
+     Poisson implies); a `rho` parameter fit from the data corrects this.
+   - **Regularization toward the cold-start priors** — teams with rich PL
+     history are barely pulled toward their prior (the data dominates);
+     newly promoted teams, with at most one real match, are pulled hard
+     toward theirs. This is standard practice for handling sparse-data
+     teams in this kind of model.
+   - Home advantage and `rho` are **fit from data**, not assumed constants.
 
-4. **Simulation (`src/simulate.py`)** — Generates the remaining 370
-   fixtures (a full double round-robin minus the Week 1 round already
-   played) and simulates each one by drawing home/away goals from a
-   Poisson distribution parameterized by the two teams' attack/defense
-   strengths and a fixed home-advantage factor. This is repeated for
-   `--sims` full seasons (default 10,000) to build a distribution of
-   outcomes per team.
+4. **Simulation (`dixon_coles.simulate_season`)** — generates the
+   remaining fixtures (full double round-robin minus rounds already
+   played) and simulates each one by drawing correlated home/away goals
+   from the fitted, low-score-corrected joint distribution (rejection
+   sampling against the independent-Poisson draw). Repeated for `--sims`
+   full seasons (default 10,000).
 
-5. **Output** — Average points, average final position, and probabilities
+5. **Output** — average points, average final position, and probabilities
    of winning the title, finishing top 4, or being relegated (bottom 3),
    for every team.
 
@@ -49,17 +67,52 @@ python main.py --sims 10000 --seed 42 --out predicted_table.csv
 - `--seed`: RNG seed for reproducibility (`-1` for a random seed each run)
 - `--out`: where to write the full results CSV
 
+To refresh the cold-start priors reference file (`data/historical_priors.csv`,
+informational — not read by `main.py`) after adding a newer season to
+`data/raw/`: `python -m src.build_priors`.
+
+## Validation (`src/backtest.py`)
+
+Backtested against 3 real, already-completed seasons (2023-24, 2024-25,
+2025-26): for each, the model is fit on only the data that would have
+existed before that season's real Matchweek 1, then scored two ways —
+season-long rank correlation against the real final table, and match-level
+probability accuracy (Ranked Probability Score, log-loss) against the
+**closing betting-market odds** for the same matches, which is the standard
+benchmark in football forecasting (nobody expects to beat a liquid market,
+but tracking it is the credible "does this actually work" test).
+
+```bash
+python -m src.backtest
+```
+
+| Season | Rank rho (model) | Rank rho (naive: "last season's table") | RPS (model) | RPS (market) | Log-loss (model) | Log-loss (market) |
+|---|---|---|---|---|---|---|
+| 2023-24 | 0.836 | 0.814 | 0.191 | 0.183 | 0.927 | 0.904 |
+| 2024-25 | 0.720 | 0.689 | 0.210 | 0.197 | 1.010 | 0.971 |
+| 2025-26 | 0.576 | 0.573 | 0.213 | 0.206 | 1.037 | 1.015 |
+| **Average** | **0.711** | **0.692** | **0.205** | **0.195** | **0.991** | **0.964** |
+
+Takeaways:
+- Beats the "assume nothing changes from last season" baseline on rank
+  correlation in all 3 seasons, though not by a huge margin.
+- Match-level probabilities are within ~5% of the closing market's RPS and
+  log-loss — both far better than random guessing (log-loss 1.099 for a
+  uniform 3-way guess) — without using any odds data as an input.
+- `SHRINKAGE_K`-equivalent regularization strength and the Dixon-Coles
+  half-life were grid-searched against the average across these 3 seasons
+  (not fit to any single one); the current defaults are near the empirical
+  optimum found in that search.
+
 ## Limitations
 
-- **One match of real data is not enough to reliably predict a 38-game
-  season.** This tool leans heavily on historical priors to compensate;
-  results should be read as an illustrative, order-of-magnitude forecast,
-  not a confident prediction. Accuracy will improve significantly once
-  more matchweeks of results are added to `data/week1_table.csv` (or the
-  strength model is extended to ingest multiple weeks).
-- The historical priors were written from general training knowledge and
-  were not cross-checked against a live database (this sandboxed
-  environment cannot reach sports data sites), so treat tier assignments
-  as approximate.
-- The model does not account for injuries, transfers, fixture congestion,
-  managerial changes, or in-season squad changes.
+- **Real accuracy gains from here need new signal**, not more tuning of
+  existing parameters — e.g. squad/transfer data, injuries, or incorporating
+  betting-market odds directly (available in `data/raw_odds/` for the
+  backtest seasons, not currently used as a model input).
+- Newly promoted teams' priors rest on a translation ratio fit to just one
+  prior promotion class, so they carry more uncertainty than returning
+  teams' priors.
+- No injuries, transfers, fixture congestion, or managerial changes.
+- Home advantage and `rho` are fit as single league-wide constants, not
+  per team.

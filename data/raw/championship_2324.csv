@@ -1,0 +1,553 @@
+Date,HomeTeam,AwayTeam,FTHG,FTAG
+04/08/2023,Sheffield Weds,Southampton,1,2
+05/08/2023,Blackburn,West Brom,2,1
+05/08/2023,Bristol City,Preston,1,1
+05/08/2023,Middlesbrough,Millwall,0,1
+05/08/2023,Norwich,Hull,2,1
+05/08/2023,Plymouth,Huddersfield,3,1
+05/08/2023,Stoke,Rotherham,4,1
+05/08/2023,Swansea,Birmingham,1,1
+05/08/2023,Watford,QPR,4,0
+06/08/2023,Leicester,Coventry,2,1
+06/08/2023,Leeds,Cardiff,2,2
+06/08/2023,Sunderland,Ipswich,1,2
+12/08/2023,Coventry,Middlesbrough,3,0
+12/08/2023,Birmingham,Leeds,1,0
+12/08/2023,Cardiff,QPR,1,2
+12/08/2023,Huddersfield,Leicester,0,1
+12/08/2023,Hull,Sheffield Weds,4,2
+12/08/2023,Ipswich,Stoke,2,0
+12/08/2023,Millwall,Bristol City,0,1
+12/08/2023,Preston,Sunderland,2,1
+12/08/2023,Rotherham,Blackburn,2,2
+12/08/2023,Southampton,Norwich,4,4
+12/08/2023,Watford,Plymouth,0,0
+12/08/2023,West Brom,Swansea,3,2
+18/08/2023,Leeds,West Brom,1,1
+19/08/2023,Plymouth,Southampton,1,2
+19/08/2023,Blackburn,Hull,1,2
+19/08/2023,Bristol City,Birmingham,0,2
+19/08/2023,Leicester,Cardiff,2,1
+19/08/2023,Middlesbrough,Huddersfield,1,1
+19/08/2023,QPR,Ipswich,0,1
+19/08/2023,Sheffield Weds,Preston,0,1
+19/08/2023,Stoke,Watford,1,0
+19/08/2023,Sunderland,Rotherham,2,1
+19/08/2023,Swansea,Coventry,1,1
+20/08/2023,Norwich,Millwall,3,1
+25/08/2023,Hull,Bristol City,1,1
+26/08/2023,Birmingham,Plymouth,2,1
+26/08/2023,Cardiff,Sheffield Weds,2,1
+26/08/2023,Coventry,Sunderland,0,0
+26/08/2023,Huddersfield,Norwich,0,4
+26/08/2023,Ipswich,Leeds,3,4
+26/08/2023,Millwall,Stoke,1,0
+26/08/2023,Preston,Swansea,2,1
+26/08/2023,Rotherham,Leicester,1,2
+26/08/2023,Southampton,QPR,2,1
+26/08/2023,West Brom,Middlesbrough,4,2
+27/08/2023,Watford,Blackburn,0,1
+02/09/2023,Birmingham,Millwall,1,1
+02/09/2023,Sunderland,Southampton,5,0
+02/09/2023,Swansea,Bristol City,1,2
+02/09/2023,Coventry,Watford,3,3
+02/09/2023,Ipswich,Cardiff,3,2
+02/09/2023,Leeds,Sheffield Weds,0,0
+02/09/2023,Leicester,Hull,0,1
+02/09/2023,Middlesbrough,QPR,0,2
+02/09/2023,Plymouth,Blackburn,3,0
+02/09/2023,Rotherham,Norwich,2,1
+02/09/2023,Stoke,Preston,0,2
+02/09/2023,West Brom,Huddersfield,1,2
+15/09/2023,Hull,Coventry,1,1
+15/09/2023,Southampton,Leicester,1,4
+16/09/2023,Blackburn,Middlesbrough,2,1
+16/09/2023,Bristol City,West Brom,0,0
+16/09/2023,Huddersfield,Rotherham,2,0
+16/09/2023,Norwich,Stoke,1,0
+16/09/2023,Preston,Plymouth,2,1
+16/09/2023,QPR,Sunderland,1,3
+16/09/2023,Sheffield Weds,Ipswich,0,1
+16/09/2023,Watford,Birmingham,2,0
+16/09/2023,Cardiff,Swansea,2,0
+17/09/2023,Millwall,Leeds,0,3
+19/09/2023,Bristol City,Plymouth,4,1
+19/09/2023,Cardiff,Coventry,3,2
+19/09/2023,Preston,Birmingham,2,1
+19/09/2023,QPR,Swansea,1,1
+19/09/2023,Southampton,Ipswich,0,1
+19/09/2023,Sheffield Weds,Middlesbrough,1,1
+20/09/2023,Blackburn,Sunderland,1,3
+20/09/2023,Huddersfield,Stoke,2,2
+20/09/2023,Hull,Leeds,0,0
+20/09/2023,Millwall,Rotherham,3,0
+20/09/2023,Watford,West Brom,2,2
+20/09/2023,Norwich,Leicester,0,2
+22/09/2023,Birmingham,QPR,0,0
+23/09/2023,Ipswich,Blackburn,4,3
+23/09/2023,Leeds,Watford,3,0
+23/09/2023,Leicester,Bristol City,1,0
+23/09/2023,Middlesbrough,Southampton,2,1
+23/09/2023,Plymouth,Norwich,6,2
+23/09/2023,Rotherham,Preston,1,1
+23/09/2023,Swansea,Sheffield Weds,3,0
+23/09/2023,West Brom,Millwall,0,0
+24/09/2023,Stoke,Hull,1,3
+24/09/2023,Sunderland,Cardiff,0,1
+25/09/2023,Coventry,Huddersfield,1,1
+29/09/2023,Sheffield Weds,Sunderland,0,3
+30/09/2023,Southampton,Leeds,3,1
+30/09/2023,Bristol City,Stoke,2,3
+30/09/2023,Cardiff,Rotherham,2,0
+30/09/2023,Huddersfield,Ipswich,1,1
+30/09/2023,Hull,Plymouth,1,1
+30/09/2023,Millwall,Swansea,0,3
+30/09/2023,Norwich,Birmingham,2,0
+30/09/2023,Preston,West Brom,0,4
+30/09/2023,QPR,Coventry,1,3
+30/09/2023,Watford,Middlesbrough,2,3
+01/10/2023,Blackburn,Leicester,1,4
+03/10/2023,Birmingham,Huddersfield,4,1
+03/10/2023,Ipswich,Hull,3,0
+03/10/2023,Middlesbrough,Cardiff,2,0
+03/10/2023,Plymouth,Millwall,0,2
+03/10/2023,Stoke,Southampton,0,1
+03/10/2023,West Brom,Sheffield Weds,1,0
+04/10/2023,Coventry,Blackburn,1,0
+04/10/2023,Leeds,QPR,1,0
+04/10/2023,Leicester,Preston,3,0
+04/10/2023,Sunderland,Watford,2,0
+04/10/2023,Swansea,Norwich,2,1
+04/10/2023,Rotherham,Bristol City,1,2
+06/10/2023,Birmingham,West Brom,3,1
+07/10/2023,Sunderland,Middlesbrough,0,4
+07/10/2023,Cardiff,Watford,1,1
+07/10/2023,Coventry,Norwich,1,1
+07/10/2023,Ipswich,Preston,4,2
+07/10/2023,Leeds,Bristol City,2,1
+07/10/2023,Leicester,Stoke,2,0
+07/10/2023,Millwall,Hull,2,2
+07/10/2023,Plymouth,Swansea,1,3
+07/10/2023,QPR,Blackburn,0,4
+07/10/2023,Sheffield Weds,Huddersfield,0,0
+07/10/2023,Southampton,Rotherham,1,1
+21/10/2023,Preston,Millwall,1,1
+21/10/2023,Blackburn,Cardiff,1,0
+21/10/2023,Bristol City,Coventry,1,0
+21/10/2023,Huddersfield,QPR,2,1
+21/10/2023,Hull,Southampton,1,2
+21/10/2023,Middlesbrough,Birmingham,1,0
+21/10/2023,Norwich,Leeds,2,3
+21/10/2023,Stoke,Sunderland,2,1
+21/10/2023,Swansea,Leicester,1,3
+21/10/2023,Watford,Sheffield Weds,1,0
+21/10/2023,West Brom,Plymouth,0,0
+24/10/2023,Huddersfield,Cardiff,0,4
+24/10/2023,Millwall,Blackburn,1,2
+24/10/2023,Norwich,Middlesbrough,1,2
+24/10/2023,Swansea,Watford,0,1
+24/10/2023,Leicester,Sunderland,1,0
+24/10/2023,West Brom,QPR,2,0
+25/10/2023,Birmingham,Hull,0,2
+25/10/2023,Bristol City,Ipswich,0,1
+25/10/2023,Plymouth,Sheffield Weds,3,0
+25/10/2023,Preston,Southampton,2,2
+25/10/2023,Rotherham,Coventry,2,0
+25/10/2023,Stoke,Leeds,1,0
+28/10/2023,Leeds,Huddersfield,4,1
+28/10/2023,Southampton,Birmingham,3,1
+28/10/2023,Blackburn,Swansea,0,1
+28/10/2023,Cardiff,Bristol City,2,0
+28/10/2023,Hull,Preston,1,0
+28/10/2023,Ipswich,Plymouth,3,2
+28/10/2023,Middlesbrough,Stoke,0,2
+28/10/2023,QPR,Leicester,1,2
+28/10/2023,Sunderland,Norwich,3,1
+28/10/2023,Watford,Millwall,2,2
+29/10/2023,Sheffield Weds,Rotherham,2,0
+30/10/2023,Coventry,West Brom,0,2
+03/11/2023,Leicester,Leeds,0,1
+04/11/2023,Birmingham,Ipswich,2,2
+04/11/2023,Bristol City,Sheffield Weds,1,0
+04/11/2023,Huddersfield,Watford,0,0
+04/11/2023,Millwall,Southampton,0,1
+04/11/2023,Plymouth,Middlesbrough,3,3
+04/11/2023,Preston,Coventry,3,2
+04/11/2023,Rotherham,QPR,1,1
+04/11/2023,Stoke,Cardiff,0,0
+04/11/2023,Swansea,Sunderland,0,0
+04/11/2023,West Brom,Hull,3,1
+05/11/2023,Norwich,Blackburn,1,3
+07/11/2023,Rotherham,Ipswich,2,2
+10/11/2023,Blackburn,Preston,1,2
+11/11/2023,Sunderland,Birmingham,3,1
+11/11/2023,Cardiff,Norwich,2,3
+11/11/2023,Coventry,Stoke,0,0
+11/11/2023,Hull,Huddersfield,1,0
+11/11/2023,Ipswich,Swansea,3,2
+11/11/2023,Leeds,Plymouth,2,1
+11/11/2023,Middlesbrough,Leicester,1,0
+11/11/2023,QPR,Bristol City,0,0
+11/11/2023,Sheffield Weds,Millwall,0,4
+11/11/2023,Southampton,West Brom,2,1
+11/11/2023,Watford,Rotherham,5,0
+24/11/2023,Rotherham,Leeds,1,1
+25/11/2023,Birmingham,Sheffield Weds,2,1
+25/11/2023,Bristol City,Middlesbrough,3,2
+25/11/2023,Huddersfield,Southampton,1,1
+25/11/2023,Leicester,Watford,2,0
+25/11/2023,Millwall,Coventry,0,3
+25/11/2023,Norwich,QPR,1,0
+25/11/2023,Plymouth,Sunderland,2,0
+25/11/2023,Preston,Cardiff,1,2
+25/11/2023,Stoke,Blackburn,0,3
+25/11/2023,Swansea,Hull,2,2
+25/11/2023,West Brom,Ipswich,2,0
+28/11/2023,Cardiff,West Brom,0,1
+28/11/2023,Coventry,Plymouth,1,0
+28/11/2023,Hull,Rotherham,4,1
+28/11/2023,Middlesbrough,Preston,4,0
+28/11/2023,QPR,Stoke,4,2
+28/11/2023,Watford,Norwich,3,2
+29/11/2023,Blackburn,Birmingham,4,2
+29/11/2023,Leeds,Swansea,3,1
+29/11/2023,Sheffield Weds,Leicester,1,1
+29/11/2023,Southampton,Bristol City,1,0
+29/11/2023,Sunderland,Huddersfield,1,2
+29/11/2023,Ipswich,Millwall,3,1
+01/12/2023,Preston,QPR,0,2
+02/12/2023,West Brom,Leicester,1,2
+02/12/2023,Birmingham,Rotherham,0,0
+02/12/2023,Hull,Watford,1,2
+02/12/2023,Ipswich,Coventry,2,1
+02/12/2023,Leeds,Middlesbrough,3,2
+02/12/2023,Millwall,Sunderland,1,1
+02/12/2023,Plymouth,Stoke,2,1
+02/12/2023,Sheffield Weds,Blackburn,3,1
+02/12/2023,Southampton,Cardiff,2,0
+02/12/2023,Swansea,Huddersfield,1,1
+03/12/2023,Bristol City,Norwich,1,2
+08/12/2023,Coventry,Birmingham,2,0
+09/12/2023,Blackburn,Leeds,0,2
+09/12/2023,Sunderland,West Brom,2,1
+09/12/2023,Cardiff,Millwall,1,0
+09/12/2023,Huddersfield,Bristol City,1,1
+09/12/2023,Leicester,Plymouth,4,0
+09/12/2023,Middlesbrough,Ipswich,0,2
+09/12/2023,Norwich,Preston,0,0
+09/12/2023,QPR,Hull,2,0
+09/12/2023,Rotherham,Swansea,1,2
+09/12/2023,Stoke,Sheffield Weds,0,1
+09/12/2023,Watford,Southampton,1,1
+12/12/2023,Blackburn,Bristol City,2,1
+12/12/2023,Huddersfield,Preston,1,3
+12/12/2023,Rotherham,West Brom,0,2
+12/12/2023,Stoke,Swansea,1,1
+12/12/2023,Watford,Ipswich,1,2
+12/12/2023,Sunderland,Leeds,1,0
+13/12/2023,Cardiff,Birmingham,0,1
+13/12/2023,Coventry,Southampton,1,1
+13/12/2023,Leicester,Millwall,3,2
+13/12/2023,Norwich,Sheffield Weds,3,1
+13/12/2023,QPR,Plymouth,0,0
+13/12/2023,Middlesbrough,Hull,1,2
+16/12/2023,Ipswich,Norwich,2,2
+16/12/2023,Bristol City,Sunderland,1,0
+16/12/2023,Hull,Cardiff,3,0
+16/12/2023,Leeds,Coventry,1,1
+16/12/2023,Millwall,Huddersfield,1,1
+16/12/2023,Plymouth,Rotherham,3,2
+16/12/2023,Preston,Watford,1,5
+16/12/2023,Sheffield Weds,QPR,2,1
+16/12/2023,Southampton,Blackburn,4,0
+16/12/2023,Swansea,Middlesbrough,1,2
+17/12/2023,West Brom,Stoke,1,1
+18/12/2023,Birmingham,Leicester,2,3
+22/12/2023,Bristol City,Hull,3,2
+22/12/2023,Swansea,Preston,2,1
+23/12/2023,Leeds,Ipswich,4,0
+23/12/2023,Blackburn,Watford,1,2
+23/12/2023,Leicester,Rotherham,3,0
+23/12/2023,Middlesbrough,West Brom,1,0
+23/12/2023,Norwich,Huddersfield,2,0
+23/12/2023,Plymouth,Birmingham,3,3
+23/12/2023,QPR,Southampton,0,1
+23/12/2023,Sheffield Weds,Cardiff,1,2
+23/12/2023,Stoke,Millwall,0,0
+23/12/2023,Sunderland,Coventry,0,3
+26/12/2023,Preston,Leeds,2,1
+26/12/2023,Millwall,QPR,2,0
+26/12/2023,Cardiff,Plymouth,2,2
+26/12/2023,Coventry,Sheffield Weds,2,0
+26/12/2023,Huddersfield,Blackburn,3,0
+26/12/2023,Hull,Sunderland,0,1
+26/12/2023,Rotherham,Middlesbrough,1,0
+26/12/2023,Southampton,Swansea,5,0
+26/12/2023,Watford,Bristol City,1,4
+26/12/2023,West Brom,Norwich,1,0
+26/12/2023,Birmingham,Stoke,1,3
+26/12/2023,Ipswich,Leicester,1,1
+29/12/2023,Southampton,Plymouth,2,1
+29/12/2023,Birmingham,Bristol City,0,0
+29/12/2023,Cardiff,Leicester,0,2
+29/12/2023,Coventry,Swansea,2,2
+29/12/2023,Huddersfield,Middlesbrough,1,2
+29/12/2023,Hull,Blackburn,3,2
+29/12/2023,Ipswich,QPR,0,0
+29/12/2023,Millwall,Norwich,1,0
+29/12/2023,Preston,Sheffield Weds,0,1
+29/12/2023,Rotherham,Sunderland,1,1
+29/12/2023,Watford,Stoke,1,1
+29/12/2023,West Brom,Leeds,1,0
+01/01/2024,Sunderland,Preston,2,0
+01/01/2024,Blackburn,Rotherham,2,2
+01/01/2024,Bristol City,Millwall,0,1
+01/01/2024,Leeds,Birmingham,3,0
+01/01/2024,Leicester,Huddersfield,4,1
+01/01/2024,Middlesbrough,Coventry,1,3
+01/01/2024,Norwich,Southampton,1,1
+01/01/2024,Plymouth,Watford,3,3
+01/01/2024,QPR,Cardiff,1,2
+01/01/2024,Stoke,Ipswich,0,0
+01/01/2024,Swansea,West Brom,1,0
+01/01/2024,Sheffield Weds,Hull,3,1
+12/01/2024,Hull,Norwich,1,2
+13/01/2024,Coventry,Leicester,3,1
+13/01/2024,Birmingham,Swansea,2,2
+13/01/2024,Cardiff,Leeds,0,3
+13/01/2024,Huddersfield,Plymouth,1,1
+13/01/2024,Millwall,Middlesbrough,1,3
+13/01/2024,Preston,Bristol City,2,0
+13/01/2024,Rotherham,Stoke,0,1
+13/01/2024,Southampton,Sheffield Weds,4,0
+13/01/2024,West Brom,Blackburn,4,1
+13/01/2024,Ipswich,Sunderland,2,1
+14/01/2024,QPR,Watford,1,2
+19/01/2024,Sunderland,Hull,0,1
+20/01/2024,Swansea,Southampton,1,3
+20/01/2024,Blackburn,Huddersfield,1,1
+20/01/2024,Bristol City,Watford,1,1
+20/01/2024,Middlesbrough,Rotherham,1,1
+20/01/2024,Norwich,West Brom,2,0
+20/01/2024,Plymouth,Cardiff,3,1
+20/01/2024,QPR,Millwall,2,0
+20/01/2024,Sheffield Weds,Coventry,1,2
+20/01/2024,Stoke,Birmingham,1,2
+21/01/2024,Leeds,Preston,2,1
+22/01/2024,Leicester,Ipswich,1,1
+24/01/2024,Leeds,Norwich,1,0
+27/01/2024,Millwall,Preston,1,1
+27/01/2024,Sunderland,Stoke,3,1
+28/01/2024,QPR,Huddersfield,1,1
+30/01/2024,Coventry,Bristol City,2,2
+30/01/2024,Leicester,Swansea,3,1
+31/01/2024,Sheffield Weds,Watford,0,0
+02/02/2024,Bristol City,Leeds,0,1
+03/02/2024,Blackburn,QPR,1,2
+03/02/2024,Huddersfield,Sheffield Weds,4,0
+03/02/2024,Hull,Millwall,1,0
+03/02/2024,Norwich,Coventry,2,1
+03/02/2024,Preston,Ipswich,3,2
+03/02/2024,Rotherham,Southampton,0,2
+03/02/2024,Stoke,Leicester,0,5
+03/02/2024,Swansea,Plymouth,0,1
+03/02/2024,Watford,Cardiff,0,1
+03/02/2024,West Brom,Birmingham,1,0
+04/02/2024,Middlesbrough,Sunderland,1,1
+09/02/2024,Sheffield Weds,Birmingham,2,0
+10/02/2024,Ipswich,West Brom,2,2
+10/02/2024,Blackburn,Stoke,3,1
+10/02/2024,Cardiff,Preston,0,2
+10/02/2024,Hull,Swansea,0,1
+10/02/2024,Leeds,Rotherham,3,0
+10/02/2024,Middlesbrough,Bristol City,1,2
+10/02/2024,QPR,Norwich,2,2
+10/02/2024,Southampton,Huddersfield,5,3
+10/02/2024,Sunderland,Plymouth,3,1
+10/02/2024,Watford,Leicester,1,2
+11/02/2024,Coventry,Millwall,2,1
+13/02/2024,Birmingham,Blackburn,1,0
+13/02/2024,Leicester,Sheffield Weds,2,0
+13/02/2024,Norwich,Watford,4,2
+13/02/2024,Rotherham,Hull,1,2
+13/02/2024,Swansea,Leeds,0,4
+13/02/2024,Bristol City,Southampton,3,1
+13/02/2024,West Brom,Cardiff,2,0
+14/02/2024,Huddersfield,Sunderland,1,0
+14/02/2024,Plymouth,Coventry,2,2
+14/02/2024,Preston,Middlesbrough,2,1
+14/02/2024,Stoke,QPR,1,0
+14/02/2024,Millwall,Ipswich,0,4
+16/02/2024,West Brom,Southampton,0,2
+17/02/2024,Plymouth,Leeds,0,2
+17/02/2024,Birmingham,Sunderland,2,1
+17/02/2024,Bristol City,QPR,0,1
+17/02/2024,Huddersfield,Hull,1,2
+17/02/2024,Leicester,Middlesbrough,1,2
+17/02/2024,Millwall,Sheffield Weds,0,2
+17/02/2024,Norwich,Cardiff,4,1
+17/02/2024,Preston,Blackburn,2,2
+17/02/2024,Rotherham,Watford,0,1
+17/02/2024,Stoke,Coventry,0,1
+17/02/2024,Swansea,Ipswich,1,2
+20/02/2024,Cardiff,Blackburn,0,0
+20/02/2024,Ipswich,Rotherham,4,3
+20/02/2024,Plymouth,West Brom,0,3
+20/02/2024,Southampton,Hull,1,2
+23/02/2024,Coventry,Preston,0,3
+23/02/2024,Leeds,Leicester,3,1
+24/02/2024,Hull,West Brom,1,1
+24/02/2024,Blackburn,Norwich,1,1
+24/02/2024,Cardiff,Stoke,2,1
+24/02/2024,Ipswich,Birmingham,3,1
+24/02/2024,Middlesbrough,Plymouth,0,2
+24/02/2024,QPR,Rotherham,2,1
+24/02/2024,Sheffield Weds,Bristol City,2,1
+24/02/2024,Southampton,Millwall,1,2
+24/02/2024,Sunderland,Swansea,1,2
+24/02/2024,Watford,Huddersfield,1,2
+01/03/2024,West Brom,Coventry,2,1
+02/03/2024,Bristol City,Cardiff,0,1
+02/03/2024,Huddersfield,Leeds,1,1
+02/03/2024,Birmingham,Southampton,3,4
+02/03/2024,Leicester,QPR,1,2
+02/03/2024,Millwall,Watford,1,0
+02/03/2024,Norwich,Sunderland,1,0
+02/03/2024,Plymouth,Ipswich,0,2
+02/03/2024,Preston,Hull,0,0
+02/03/2024,Rotherham,Sheffield Weds,0,1
+02/03/2024,Stoke,Middlesbrough,2,0
+02/03/2024,Swansea,Blackburn,2,1
+05/03/2024,Blackburn,Millwall,1,1
+05/03/2024,Coventry,Rotherham,5,0
+05/03/2024,Hull,Birmingham,1,1
+05/03/2024,Leeds,Stoke,1,0
+05/03/2024,Sheffield Weds,Plymouth,1,0
+05/03/2024,Sunderland,Leicester,0,1
+05/03/2024,Ipswich,Bristol City,3,2
+06/03/2024,Cardiff,Huddersfield,1,0
+06/03/2024,Middlesbrough,Norwich,3,1
+06/03/2024,Watford,Swansea,1,1
+06/03/2024,QPR,West Brom,2,2
+08/03/2024,Sheffield Weds,Leeds,0,2
+09/03/2024,Cardiff,Ipswich,2,1
+09/03/2024,Blackburn,Plymouth,1,1
+09/03/2024,Hull,Leicester,2,2
+09/03/2024,Millwall,Birmingham,1,0
+09/03/2024,Norwich,Rotherham,5,0
+09/03/2024,Preston,Stoke,1,2
+09/03/2024,QPR,Middlesbrough,0,2
+09/03/2024,Southampton,Sunderland,4,2
+09/03/2024,Watford,Coventry,1,2
+10/03/2024,Huddersfield,West Brom,1,4
+10/03/2024,Bristol City,Swansea,1,0
+12/03/2024,Birmingham,Middlesbrough,0,1
+16/03/2024,Swansea,Cardiff,2,0
+16/03/2024,Birmingham,Watford,0,1
+16/03/2024,Ipswich,Sheffield Weds,6,0
+16/03/2024,Middlesbrough,Blackburn,0,0
+16/03/2024,Plymouth,Preston,0,1
+16/03/2024,Rotherham,Huddersfield,0,0
+16/03/2024,Stoke,Norwich,0,3
+16/03/2024,Sunderland,QPR,0,0
+16/03/2024,West Brom,Bristol City,2,0
+17/03/2024,Leeds,Millwall,2,0
+29/03/2024,Bristol City,Leicester,1,0
+29/03/2024,Millwall,West Brom,1,1
+29/03/2024,Cardiff,Sunderland,0,2
+29/03/2024,Huddersfield,Coventry,1,3
+29/03/2024,Hull,Stoke,0,2
+29/03/2024,Norwich,Plymouth,2,1
+29/03/2024,Preston,Rotherham,3,0
+29/03/2024,QPR,Birmingham,2,1
+29/03/2024,Sheffield Weds,Swansea,1,1
+29/03/2024,Southampton,Middlesbrough,1,1
+29/03/2024,Blackburn,Ipswich,0,1
+29/03/2024,Watford,Leeds,2,2
+01/04/2024,Leicester,Norwich,3,1
+01/04/2024,Birmingham,Preston,1,0
+01/04/2024,Coventry,Cardiff,1,2
+01/04/2024,Middlesbrough,Sheffield Weds,2,0
+01/04/2024,Plymouth,Bristol City,0,1
+01/04/2024,Rotherham,Millwall,2,1
+01/04/2024,Stoke,Huddersfield,1,1
+01/04/2024,Sunderland,Blackburn,1,5
+01/04/2024,Swansea,QPR,0,1
+01/04/2024,West Brom,Watford,2,2
+01/04/2024,Ipswich,Southampton,3,2
+01/04/2024,Leeds,Hull,3,1
+05/04/2024,Rotherham,Plymouth,0,1
+06/04/2024,Norwich,Ipswich,1,0
+06/04/2024,Blackburn,Southampton,0,0
+06/04/2024,Cardiff,Hull,1,3
+06/04/2024,Coventry,Leeds,2,1
+06/04/2024,Huddersfield,Millwall,1,0
+06/04/2024,Leicester,Birmingham,2,1
+06/04/2024,Middlesbrough,Swansea,2,0
+06/04/2024,QPR,Sheffield Weds,0,2
+06/04/2024,Stoke,West Brom,2,2
+06/04/2024,Sunderland,Bristol City,0,0
+06/04/2024,Watford,Preston,0,0
+09/04/2024,Millwall,Leicester,1,0
+09/04/2024,Plymouth,QPR,1,1
+09/04/2024,Preston,Huddersfield,4,1
+09/04/2024,Sheffield Weds,Norwich,2,2
+09/04/2024,Southampton,Coventry,2,1
+09/04/2024,Leeds,Sunderland,0,0
+10/04/2024,Birmingham,Cardiff,0,1
+10/04/2024,Bristol City,Blackburn,5,0
+10/04/2024,Hull,Middlesbrough,2,2
+10/04/2024,Ipswich,Watford,0,0
+10/04/2024,Swansea,Stoke,3,0
+10/04/2024,West Brom,Rotherham,2,0
+12/04/2024,Plymouth,Leicester,1,0
+13/04/2024,Leeds,Blackburn,0,1
+13/04/2024,Birmingham,Coventry,3,0
+13/04/2024,Bristol City,Huddersfield,1,1
+13/04/2024,Hull,QPR,3,0
+13/04/2024,Ipswich,Middlesbrough,1,1
+13/04/2024,Millwall,Cardiff,3,1
+13/04/2024,Preston,Norwich,0,1
+13/04/2024,Sheffield Weds,Stoke,1,1
+13/04/2024,Southampton,Watford,3,2
+13/04/2024,Swansea,Rotherham,1,0
+13/04/2024,West Brom,Sunderland,0,1
+16/04/2024,Southampton,Preston,3,0
+20/04/2024,Leicester,West Brom,2,1
+20/04/2024,Cardiff,Southampton,2,1
+20/04/2024,Huddersfield,Swansea,0,4
+20/04/2024,Norwich,Bristol City,1,1
+20/04/2024,Rotherham,Birmingham,0,0
+20/04/2024,Stoke,Plymouth,3,0
+20/04/2024,Sunderland,Millwall,0,1
+20/04/2024,Watford,Hull,0,0
+20/04/2024,QPR,Preston,1,0
+21/04/2024,Blackburn,Sheffield Weds,1,3
+22/04/2024,Middlesbrough,Leeds,3,4
+23/04/2024,Leicester,Southampton,5,0
+24/04/2024,Coventry,Hull,2,3
+26/04/2024,QPR,Leeds,4,0
+27/04/2024,Blackburn,Coventry,0,0
+27/04/2024,Bristol City,Rotherham,2,0
+27/04/2024,Cardiff,Middlesbrough,1,4
+27/04/2024,Huddersfield,Birmingham,1,1
+27/04/2024,Millwall,Plymouth,1,0
+27/04/2024,Norwich,Swansea,2,2
+27/04/2024,Sheffield Weds,West Brom,3,0
+27/04/2024,Southampton,Stoke,0,1
+27/04/2024,Watford,Sunderland,1,0
+27/04/2024,Hull,Ipswich,3,3
+29/04/2024,Preston,Leicester,0,3
+30/04/2024,Coventry,Ipswich,1,2
+04/05/2024,Birmingham,Norwich,1,0
+04/05/2024,Coventry,QPR,1,2
+04/05/2024,Ipswich,Huddersfield,2,0
+04/05/2024,Leeds,Southampton,1,2
+04/05/2024,Leicester,Blackburn,0,2
+04/05/2024,Middlesbrough,Watford,3,1
+04/05/2024,Plymouth,Hull,1,0
+04/05/2024,Rotherham,Cardiff,5,2
+04/05/2024,Stoke,Bristol City,4,0
+04/05/2024,Sunderland,Sheffield Weds,0,2
+04/05/2024,Swansea,Millwall,0,1
+04/05/2024,West Brom,Preston,3,0
