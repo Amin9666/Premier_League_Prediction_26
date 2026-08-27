@@ -5,6 +5,8 @@ a **Dixon-Coles** goal-scoring model (Dixon & Coles, 1997 — the reference
 model in the football-forecasting literature) and Monte Carlo simulation of
 the rest of the season.
 
+**[⚛️ Live demo: does the quantum Monte Carlo speedup actually show up?](https://amin9666.github.io/Premier_League_Prediction_26/)** — this project's Monte Carlo core, re-estimated with Quantum Amplitude Estimation and measured against classical sampling (`src/quantum_estimation.py`).
+
 ## How it works
 
 1. **Match data (`data/raw/`)** — Real match results from

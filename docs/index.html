@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<title>Estimating 45.84%</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:ital@1&display=swap">
+
+<style>
+  :root {
+    --bg: #f5f7f5;
+    --surface: #ffffff;
+    --surface-2: #eef2ee;
+    --ink: #14201a;
+    --ink-muted: #5b6b62;
+    --ink-faint: #8b9a91;
+    --border: #dbe3dd;
+    --border-strong: #c3cec6;
+    --classical: #1f7a4d;
+    --quantum: #2166ac;
+    --classical-bg: #1f7a4d14;
+    --quantum-bg: #2166ac14;
+    --shadow: 0 1px 2px rgba(20, 32, 26, 0.06), 0 8px 24px rgba(20, 32, 26, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12160f;
+      --surface: #181d16;
+      --surface-2: #1f251c;
+      --ink: #e7ece8;
+      --ink-muted: #9baaa1;
+      --ink-faint: #6d7b73;
+      --border: #2a322b;
+      --border-strong: #3a453b;
+      --classical: #3da372;
+      --quantum: #4a87c4;
+      --classical-bg: #3da37220;
+      --quantum-bg: #4a87c420;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #12160f;
+    --surface: #181d16;
+    --surface-2: #1f251c;
+    --ink: #e7ece8;
+    --ink-muted: #9baaa1;
+    --ink-faint: #6d7b73;
+    --border: #2a322b;
+    --border-strong: #3a453b;
+    --classical: #3da372;
+    --quantum: #4a87c4;
+    --classical-bg: #3da37220;
+    --quantum-bg: #4a87c420;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0 20px 100px;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; }
+
+  code, .mono, .tabular {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  a { color: var(--quantum); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--quantum); outline-offset: 2px; }
+
+  /* ---------- masthead ---------- */
+  .masthead {
+    padding: 56px 0 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--quantum); }
+  h1 {
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 14px;
+  }
+  .dek {
+    font-size: 17px;
+    color: var(--ink-muted);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  /* ---------- scoreboard ---------- */
+  .scoreboard {
+    margin: 36px 0 8px;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 10px;
+    padding: 26px 28px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+  .scoreboard .fixture {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14.5px;
+    letter-spacing: 0.01em;
+  }
+  .scoreboard .fixture .vs { opacity: 0.55; margin: 0 8px; }
+  .scoreboard .readout { text-align: right; }
+  .scoreboard .readout .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .scoreboard .readout .label {
+    font-size: 11.5px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-top: 2px;
+  }
+
+  /* ---------- sections ---------- */
+  section { padding: 44px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    margin: 0 0 16px;
+  }
+  h2 .idx {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-faint);
+    font-weight: 500;
+    margin-right: 10px;
+  }
+  p { margin: 0 0 14px; max-width: 68ch; }
+  p:last-child { margin-bottom: 0; }
+
+  .thesis {
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: 58ch;
+    margin: 8px 0 0;
+  }
+  .thesis .hl { font-style: normal; font-weight: 400; background: var(--quantum-bg); padding: 0 3px; }
+
+  /* ---------- circuit ---------- */
+  .circuit-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    margin: 20px 0;
+    overflow-x: auto;
+  }
+  .circuit-card svg { display: block; margin: 0 auto; }
+  .circuit-caption {
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  /* ---------- chart ---------- */
+  .chart-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 20px 16px;
+    box-shadow: var(--shadow);
+  }
+  .chart-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .chart-title { font-weight: 600; font-size: 15px; }
+  .chart-sub { font-size: 13px; color: var(--ink-muted); }
+  .legend { display: flex; gap: 18px; font-size: 13px; }
+  .legend .item { display: flex; align-items: center; gap: 7px; }
+  .legend .swatch { width: 14px; height: 3px; border-radius: 2px; }
+  .chart-wrap { position: relative; overflow-x: auto; }
+  #chart { width: 100%; height: auto; min-width: 520px; }
+  .axis-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    fill: var(--ink-faint);
+  }
+  .gridline { stroke: var(--border); stroke-width: 1; }
+  .tick-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; fill: var(--ink-faint); }
+  .series-line { fill: none; stroke-width: 2; }
+  .series-marker { stroke-width: 2; fill: var(--surface); }
+  .crosshair { stroke: var(--ink-faint); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0; pointer-events: none; }
+  .hover-target { fill: transparent; cursor: crosshair; }
+  .end-label { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; }
+
+  /* svg presentation-attribute colors must come from real CSS (classes), not
+     var() typed directly into an attribute value, which isn't reliably
+     supported for SVG presentation attributes */
+  .stroke-border { stroke: var(--border-strong); }
+  .stroke-ink { stroke: var(--ink); }
+  .stroke-quantum { stroke: var(--quantum); }
+  .fill-ink { fill: var(--ink); }
+  .fill-surface { fill: var(--surface); }
+  .fill-faint { fill: var(--ink-faint); }
+  .fill-muted { fill: var(--ink-muted); }
+  .fill-quantum { fill: var(--quantum); }
+  .fill-quantum-bg { fill: var(--quantum-bg); }
+  .fill-classical { fill: var(--classical); }
+
+  .tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    padding: 9px 11px;
+    border-radius: 7px;
+    line-height: 1.5;
+    opacity: 0;
+    transition: opacity 0.08s ease;
+    white-space: nowrap;
+    z-index: 5;
+    box-shadow: var(--shadow);
+  }
+  .tooltip .row { display: flex; justify-content: space-between; gap: 14px; }
+  .tooltip .row .k { opacity: 0.65; }
+  .tooltip .head { font-weight: 600; margin-bottom: 4px; opacity: 0.85; }
+
+  /* ---------- table ---------- */
+  .table-wrap { overflow-x: auto; margin-top: 22px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th, td { text-align: right; padding: 9px 12px; border-bottom: 1px solid var(--border); }
+  th:first-child, td:first-child { text-align: left; }
+  th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 500;
+  }
+  td { font-family: 'IBM Plex Mono', monospace; }
+  tr:last-child td { border-bottom: none; }
+  .speedup { color: var(--quantum); font-weight: 600; }
+
+  /* ---------- caveats ---------- */
+  .caveats {
+    background: var(--surface-2);
+    border-left: 3px solid var(--ink-faint);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+  }
+  .caveats h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    margin: 0 0 12px;
+    font-weight: 600;
+  }
+  .caveats ul { margin: 0; padding-left: 20px; }
+  .caveats li { margin-bottom: 10px; }
+  .caveats li:last-child { margin-bottom: 0; }
+  .caveats strong { color: var(--ink); }
+
+  /* ---------- footer ---------- */
+  footer {
+    padding: 40px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+  footer code { font-size: 12.5px; }
+
+  @media (max-width: 560px) {
+    .scoreboard { flex-direction: column; align-items: flex-start; }
+    .scoreboard .readout { text-align: left; }
+  }
+</style>
+
+
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="eyebrow"><span class="dot"></span> Quantum computing / classical Monte Carlo</div>
+    <h1>The same probability, estimated two ways</h1>
+    <p class="dek">A Premier League predictor's Monte Carlo core, run through Quantum Amplitude Estimation instead of classical sampling — measuring whether the textbook quadratic speedup actually shows up, on a real number the model produced.</p>
+  </div>
+
+  <div class="scoreboard">
+    <div class="fixture">ARSENAL<span class="vs">vs</span>MAN CITY</div>
+    <div class="readout">
+      <div class="num">0.4584</div>
+      <div class="label">P(home win) — fitted Dixon-Coles model</div>
+    </div>
+  </div>
+
+  <section>
+    <h2><span class="idx">01</span>Why this, and not a bolt-on</h2>
+    <p>The <a href="https://github.com/Amin9666/Premier_League_Prediction_26">Premier League predictor</a> this is built on estimates things like "P(Arsenal finish top 4)" by simulating 10,000 full seasons and counting outcomes — classical Monte Carlo. That's not incidental: Monte Carlo estimation is exactly the problem <strong>Quantum Amplitude Estimation</strong> (QAE) was built to speed up, and it's the same technique behind quantum finance's Monte Carlo option-pricing work (Stamatopoulos et al., 2020; IBM/Goldman Sachs).</p>
+    <p class="thesis">Classical sampling drives estimation error down as <span class="hl">1/&radic;M</span> for M samples. Quantum amplitude estimation drives the same error down as <span class="hl">1/M</span> — a quadratic reduction in how many queries you need for the same precision.</p>
+  </section>
+
+  <section>
+    <h2><span class="idx">02</span>What's being estimated</h2>
+    <p>Both algorithms below estimate the same target: <strong>p = 0.4584</strong>, Arsenal's fitted home-win probability against Man City from this season's actual, backtested Dixon-Coles model &mdash; not a synthetic textbook value.</p>
+    <p>The probability is loaded onto one qubit as an amplitude, <code>R<sub>y</sub>(&theta;)|0&rang; = &radic;(1&minus;p)|0&rang; + &radic;p|1&rang;</code>, then re-estimated by measurement. That amplitude-loading step is classical &mdash; see the caveats below for exactly what that does and doesn't mean.</p>
+    <div class="circuit-card">
+      <svg viewBox="0 0 620 130" width="100%" style="max-width:560px">
+        <line x1="40" y1="40" x2="580" y2="40" class="stroke-border" stroke-width="1.5"/>
+        <text x="10" y="45" class="mono fill-ink" font-size="15">|0&rang;</text>
+
+        <rect x="90" y="20" width="88" height="40" rx="6" class="fill-surface stroke-border" stroke-width="1.3"/>
+        <text x="134" y="45" text-anchor="middle" class="mono fill-ink" font-size="15">R<tspan baseline-shift="sub" font-size="10">y</tspan>(&theta;)</text>
+
+        <line x1="178" y1="40" x2="260" y2="40" class="stroke-border" stroke-width="1.5"/>
+        <text x="219" y="30" text-anchor="middle" class="mono fill-faint" font-size="10.5">&radic;(1&minus;p)|0&rang;+&radic;p|1&rang;</text>
+
+        <rect x="260" y="20" width="130" height="40" rx="6" class="fill-quantum-bg stroke-quantum" stroke-width="1.3"/>
+        <text x="325" y="45" text-anchor="middle" class="mono fill-quantum" font-size="14" font-weight="600">Q<tspan baseline-shift="super" font-size="10">k</tspan> (Grover)</text>
+
+        <line x1="390" y1="40" x2="470" y2="40" class="stroke-border" stroke-width="1.5"/>
+        <text x="430" y="30" text-anchor="middle" class="mono fill-faint" font-size="10">k adaptive</text>
+
+        <circle cx="500" cy="40" r="17" fill="none" class="stroke-ink" stroke-width="1.5"/>
+        <path d="M 490 47 A 12 12 0 0 1 510 47" fill="none" class="stroke-ink" stroke-width="1.5"/>
+        <line x1="500" y1="47" x2="507" y2="33" class="stroke-ink" stroke-width="1.5"/>
+        <line x1="524" y1="40" x2="560" y2="40" class="stroke-border" stroke-width="1.5"/>
+        <text x="595" y="45" class="mono fill-muted" font-size="13">p&#770;</text>
+
+        <text x="325" y="95" text-anchor="middle" class="mono fill-faint" font-size="10.5">round count &amp; k chosen adaptively from prior measurements &mdash;</text>
+        <text x="325" y="110" text-anchor="middle" class="mono fill-faint" font-size="10.5">Iterative Amplitude Estimation, Grinko et al. 2019</text>
+      </svg>
+      <div class="circuit-caption">Schematic — one qubit, no QPE ancilla register needed for this variant.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="idx">03</span>Error vs. queries, measured</h2>
+    <p>Same target probability, same query budget, both averaged over repeated runs (10 for the quantum estimator, 200 for classical sampling) to separate the real trend from single-run noise.</p>
+
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title">Estimation error vs. oracle queries</div>
+          <div class="chart-sub">log&ndash;log axes &middot; both series estimate p = 0.4584</div>
+        </div>
+        <div class="legend">
+          <div class="item"><span class="swatch" style="background:var(--classical)"></span>Classical Monte Carlo</div>
+          <div class="item"><span class="swatch" style="background:var(--quantum)"></span>Quantum (IAE)</div>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <svg id="chart" viewBox="0 0 680 380" role="img" aria-label="Log-log chart of estimation error versus number of oracle queries for classical Monte Carlo and quantum iterative amplitude estimation. Classical error falls roughly as one over the square root of queries; quantum error falls roughly as one over queries.">
+        </svg>
+        <div class="tooltip" id="tooltip"></div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Queries</th><th>Classical error</th><th>Quantum error (IAE)</th><th>Speedup</th></tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+    <p style="margin-top:18px; font-size:14px; color:var(--ink-muted)">Fitted log&ndash;log slopes: classical <strong class="mono" style="color:var(--classical)">M<sup>&minus;0.51</sup></strong> (theory: &minus;0.5) &middot; quantum <strong class="mono" style="color:var(--quantum)">M<sup>&minus;0.91</sup></strong> (theory: &minus;1). Classical lands almost exactly on theory; quantum is close to it and unambiguously steeper &mdash; a real, measured gap, not a rounding artifact.</p>
+  </section>
+
+  <section>
+    <h2><span class="idx">04</span>What's real here, and what isn't</h2>
+    <div class="caveats">
+      <h3>Read before citing this anywhere</h3>
+      <ul>
+        <li><strong>The probability is real.</strong> 0.4584 comes from the same Dixon-Coles model backtested across 3 Premier League seasons elsewhere in this project &mdash; not a toy number picked to make a clean chart.</li>
+        <li><strong>The amplitude is loaded, not computed.</strong> A single R<sub>y</sub> rotation encodes a classically pre-computed p. The circuit does not derive p from first principles (that would mean quantum state preparation of the underlying Poisson goal distributions &mdash; a genuinely harder problem, not attempted here). What's being tested is the <em>estimation algorithm's</em> query complexity, not a claim that goals were simulated quantum-mechanically.</li>
+        <li><strong>Simulator only.</strong> Everything above runs on Qiskit Aer's noiseless statevector simulator. Real NISQ hardware today doesn't hold coherence long enough for amplitude estimation's Grover depth to realize this speedup in practice &mdash; this demonstrates the algorithmic principle, not a claim of practical advantage today.</li>
+        <li><strong>Canonical (QPE-based) amplitude estimation was tried too</strong> and showed the same directional result, but with a stepped, less legible error curve &mdash; a known consequence of its fixed 2<sup>k</sup>-point measurement grid. Iterative Amplitude Estimation (shown above) is the adaptive variant actually used in the quantum finance literature this is modeled on, and is why it's the one shown here.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div>Built on the <a href="https://github.com/Amin9666/Premier_League_Prediction_26">Premier League Dixon-Coles predictor</a> &middot; <code>src/quantum_estimation.py</code></div>
+    <div>Qiskit 2.2 + qiskit-algorithms</div>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var data = [
+      { q: 3686,    cl: 0.00657, qe: 0.00189 },
+      { q: 19968,   cl: 0.00274, qe: 0.00114 },
+      { q: 60621,   cl: 0.00153, qe: 0.00017 },
+      { q: 79258,   cl: 0.00137, qe: 0.00010 },
+      { q: 347136,  cl: 0.00069, qe: 0.00008 },
+      { q: 1135923, cl: 0.00035, qe: 0.00001 }
+    ];
+
+    // ---- table ----
+    var tbody = document.getElementById('table-body');
+    data.forEach(function (d) {
+      var speedup = (d.cl / d.qe).toFixed(1) + '&times;';
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td>' + d.q.toLocaleString() + '</td>' +
+        '<td>' + d.cl.toFixed(5) + '</td>' +
+        '<td>' + d.qe.toFixed(5) + '</td>' +
+        '<td class="speedup">' + speedup + '</td>';
+      tbody.appendChild(tr);
+    });
+
+    // ---- chart ----
+    var svg = document.getElementById('chart');
+    var W = 680, H = 380;
+    var M = { top: 18, right: 26, bottom: 40, left: 54 };
+    var plotW = W - M.left - M.right;
+    var plotH = H - M.top - M.bottom;
+
+    var qMin = Math.log10(3000), qMax = Math.log10(1300000);
+    var eMin = Math.log10(0.000008), eMax = Math.log10(0.008);
+
+    function x(q) { return M.left + (Math.log10(q) - qMin) / (qMax - qMin) * plotW; }
+    function y(e) { return M.top + plotH - (Math.log10(e) - eMin) / (eMax - eMin) * plotH; }
+
+    var svgns = 'http://www.w3.org/2000/svg';
+    function el(tag, attrs) {
+      var e = document.createElementNS(svgns, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    }
+
+    // gridlines + tick labels (log decades)
+    [1e-5, 1e-4, 1e-3, 1e-2].forEach(function (v) {
+      var yy = y(v);
+      svg.appendChild(el('line', { x1: M.left, x2: W - M.right, y1: yy, y2: yy, class: 'gridline' }));
+      var t = el('text', { x: M.left - 8, y: yy + 3, class: 'tick-label', 'text-anchor': 'end' });
+      t.textContent = v.toExponential(0).replace('e-', 'e-0').replace('e-00', 'e-0');
+      svg.appendChild(t);
+    });
+    [1e4, 1e5, 1e6].forEach(function (v) {
+      var xx = x(v);
+      svg.appendChild(el('line', { x1: xx, x2: xx, y1: M.top, y2: M.top + plotH, class: 'gridline' }));
+      var t = el('text', { x: xx, y: M.top + plotH + 18, class: 'tick-label', 'text-anchor': 'middle' });
+      t.textContent = v.toExponential(0).replace('e+', 'e');
+      svg.appendChild(t);
+    });
+
+    svg.appendChild(el('text', { x: M.left + plotW / 2, y: H - 4, class: 'axis-label', 'text-anchor': 'middle' })).textContent = 'oracle queries (M)  →  log scale';
+    var ylab = el('text', { x: 14, y: M.top + plotH / 2, class: 'axis-label', 'text-anchor': 'middle', transform: 'rotate(-90, 14, ' + (M.top + plotH / 2) + ')' });
+    ylab.textContent = 'estimation error  →  log scale';
+    svg.appendChild(ylab);
+
+    function drawLine(key, color) {
+      var pts = data.map(function (d) { return [x(d.q), y(d[key])]; });
+      var path = 'M ' + pts.map(function (p) { return p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join(' L ');
+      svg.appendChild(el('path', { d: path, class: 'series-line', stroke: color }));
+      pts.forEach(function (p, i) {
+        svg.appendChild(el('circle', { cx: p[0], cy: p[1], r: 4.5, class: 'series-marker', stroke: color, 'data-i': i, 'data-k': key }));
+      });
+    }
+    drawLine('cl', getComputedStyle(document.documentElement).getPropertyValue('--classical').trim() || '#1f7a4d');
+    drawLine('qe', getComputedStyle(document.documentElement).getPropertyValue('--quantum').trim() || '#2166ac');
+
+    // end labels
+    var lastCl = data[data.length - 1], lastQe = data[data.length - 1];
+    var clLabel = el('text', { x: x(lastCl.q) - 6, y: y(lastCl.cl) - 10, class: 'end-label fill-classical', 'text-anchor': 'end' });
+    clLabel.textContent = 'classical';
+    svg.appendChild(clLabel);
+    var qeLabel = el('text', { x: x(lastQe.q) - 6, y: y(lastQe.qe) + 16, class: 'end-label fill-quantum', 'text-anchor': 'end' });
+    qeLabel.textContent = 'quantum (IAE)';
+    svg.appendChild(qeLabel);
+
+    // crosshair + hover
+    var crosshair = el('line', { class: 'crosshair', y1: M.top, y2: M.top + plotH });
+    svg.appendChild(crosshair);
+
+    var tooltip = document.getElementById('tooltip');
+    var chartWrap = svg.parentElement;
+
+    data.forEach(function (d, i) {
+      var hx = x(d.q);
+      var target = el('rect', {
+        x: Math.max(M.left, hx - 22), y: M.top, width: 44, height: plotH, class: 'hover-target'
+      });
+      target.addEventListener('mouseenter', function () {
+        crosshair.setAttribute('x1', hx);
+        crosshair.setAttribute('x2', hx);
+        crosshair.style.opacity = 1;
+        tooltip.innerHTML =
+          '<div class="head">' + d.q.toLocaleString() + ' queries</div>' +
+          '<div class="row"><span class="k">classical</span><span>' + d.cl.toFixed(5) + '</span></div>' +
+          '<div class="row"><span class="k">quantum</span><span>' + d.qe.toFixed(5) + '</span></div>' +
+          '<div class="row"><span class="k">speedup</span><span>' + (d.cl / d.qe).toFixed(1) + '×</span></div>';
+        tooltip.style.opacity = 1;
+        var rect = svg.getBoundingClientRect();
+        var wrapRect = chartWrap.getBoundingClientRect();
+        var scale = rect.width / W;
+        var left = (hx * scale) + (rect.left - wrapRect.left) + 14;
+        var top = (y(Math.min(d.cl, d.qe)) * scale) + (rect.top - wrapRect.top) - 10;
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = top + 'px';
+      });
+      target.addEventListener('mouseleave', function () {
+        crosshair.style.opacity = 0;
+        tooltip.style.opacity = 0;
+      });
+      svg.appendChild(target);
+    });
+  })();
+</script>
+
+</body>
+</html>
