@@ -36,7 +36,7 @@ class DixonColesParams:
     squads: list[str]
     attack: np.ndarray  # log-space attack strength per squad
     defense: np.ndarray  # log-space defense weakness per squad
-    home_advantage: float  # log-space
+    home_advantage: float  # log-space, single league-wide value
     rho: float
     index: dict[str, int]
 
@@ -68,7 +68,12 @@ def fit(
     half_life_days: float = HALF_LIFE_DAYS,
 ) -> DixonColesParams:
     """matches: columns Date, HomeTeam, AwayTeam, FTHG, FTAG (all teams in
-    matches must have an entry in prior_means/prior_strength)."""
+    matches must have an entry in prior_means/prior_strength).
+
+    (Per-team home advantage was tried and rejected: across the whole
+    tested regularization range, RPS moved only in the 4th decimal place —
+    noise, not signal — so it added complexity without a robust benefit.
+    Single league-wide value, fit from data rather than assumed.)"""
     squads = sorted(set(matches["HomeTeam"]) | set(matches["AwayTeam"]) | set(prior_means))
     n = len(squads)
     index = {s: i for i, s in enumerate(squads)}
@@ -112,6 +117,25 @@ def fit(
     result = minimize(neg_log_posterior, theta0, method="L-BFGS-B", bounds=bounds)
     alpha, beta, gamma, rho = unpack(result.x)
     return DixonColesParams(squads=squads, attack=alpha, defense=beta, home_advantage=gamma, rho=rho, index=index)
+
+
+def apply_fatigue(params: DixonColesParams, fatigue: dict[str, float] | None) -> DixonColesParams:
+    """Returns a copy of params with attack discounted / defense worsened
+    for the given teams by their multiplier (< 1.0 = more fatigued). Used
+    to adjust the forward-looking projection only, e.g. for teams playing
+    extra midweek European fixtures — the fit itself already reflects
+    real season-to-date performance as it happened."""
+    if not fatigue:
+        return params
+    attack, defense = params.attack.copy(), params.defense.copy()
+    for team, f in fatigue.items():
+        i = params.index[team]
+        attack[i] += np.log(f)
+        defense[i] -= np.log(f)
+    return DixonColesParams(
+        squads=params.squads, attack=attack, defense=defense,
+        home_advantage=params.home_advantage, rho=params.rho, index=params.index,
+    )
 
 
 def match_probabilities(params: DixonColesParams, home: str, away: str, max_goals: int = 10):
@@ -169,10 +193,17 @@ def simulate_season(
     start_ga: np.ndarray,
     n_sims: int = 10_000,
     seed: int | None = 42,
+    fatigue: dict[str, float] | None = None,
 ) -> pd.DataFrame:
     """squads: the current season's teams only (start_pts/gf/ga aligned to
     this list) — params.squads may be a superset, since the fit pool
-    includes teams from past seasons no longer in the league."""
+    includes teams from past seasons no longer in the league.
+
+    fatigue: optional {squad: multiplier < 1.0} applied only to the
+    *simulated remaining fixtures*, not the fit — e.g. for teams playing
+    extra midweek European games. The fit already reflects a team's real
+    season-to-date performance (including any fatigue that already
+    happened); this only discounts the *forward-looking* projection."""
     rng = np.random.default_rng(seed)
     n = len(squads)
     local_idx = {s: i for i, s in enumerate(squads)}
@@ -182,6 +213,7 @@ def simulate_season(
     home_fit = np.array([params.index[h] for h, _ in fixtures])
     away_fit = np.array([params.index[a] for _, a in fixtures])
 
+    params = apply_fatigue(params, fatigue)
     lam = np.exp(params.attack[home_fit] + params.defense[away_fit] + params.home_advantage)
     mu = np.exp(params.attack[away_fit] + params.defense[home_fit])
 

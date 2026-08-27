@@ -99,6 +99,26 @@ def _team_rates(path: Path) -> tuple[dict[str, tuple[float, float]], float]:
     return rates, league_avg
 
 
+def _team_shots_rate(path: Path) -> dict[str, tuple[float, float]]:
+    """Per-team (shots-on-target-for rate, shots-on-target-against rate),
+    normalized the same way as _team_rates but using HST/AST instead of
+    FTHG/FTAG. Shots on target are a lower-variance proxy for chance
+    quality than actual goals (finishing luck evens out over more shots
+    than it does over the few goals a team actually scores)."""
+    df = pd.read_csv(path)
+    league_avg = (df["HST"].sum() + df["AST"].sum()) / (2 * len(df))
+
+    rates = {}
+    for team in sorted(set(df["HomeTeam"]) | set(df["AwayTeam"])):
+        home = df[df["HomeTeam"] == team]
+        away = df[df["AwayTeam"] == team]
+        mp = len(home) + len(away)
+        sf = home["HST"].sum() + away["AST"].sum()
+        sa = home["AST"].sum() + away["HST"].sum()
+        rates[team] = (sf / mp / league_avg, sa / mp / league_avg)
+    return rates
+
+
 def _returning_team_priors() -> dict[str, tuple[float, float]]:
     season_rates = {season: _team_rates(path)[0] for season, (path, _weight) in PL_SEASONS.items()}
     promoted_fd_names = set(PROMOTED_THIS_SEASON)
