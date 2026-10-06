@@ -1,0 +1,284 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=1 cm,
+    bottom=1 cm,
+    left=2 cm,
+    right=2 cm,
+    footskip=1.0 cm,
+]{geometry}
+
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Amin Weinman's CV},
+    pdfauthor={Amin Weinman},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    -1pt
+}{
+    0.22 cm
+}{
+    0.14 cm
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.06 cm,
+        parsep=0.06 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.06 cm,
+        parsep=0.06 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\let\hrefWithoutArrow\href
+
+\definecolor{darkgreen}{RGB}{0, 100, 0}
+
+\begin{document}
+\titleformat{name=\section,numberless}[block]
+  {\bfseries\large\color{darkgreen}}{}{0pt}{}[\vspace{1pt}\titlerule]
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont Amin Weinman
+
+        \vspace{5 pt}
+
+        \normalsize
+        \mbox{(575) 418-0857}%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{mailto:aminweinman@gmail.com}{aminweinman@gmail.com}}%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/amin-weinman-630172292}{Linkedin}}%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://github.com/Amin9666}{Github}}%
+    \end{header}
+
+\section{Education}
+
+\begin{twocolentry}{
+    Expected: May 2027
+}
+    \textbf{New Mexico Institute of Mining and Technology}\end{twocolentry}
+
+\vspace{0.06 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item BS in Computer Science, Minor in Mathematics, GPA: 3.5/4.0
+        \item \textbf{Coursework:} Machine Learning, Statistics, Programming Languages, Data Structures, Computer Architecture
+    \end{highlights}
+\end{onecolentry}
+
+\section{Experience}
+
+\begin{twocolentry}{
+    May 2026 -- August 2026
+}
+    \textbf{Researcher}, DREU in Agentic AI -- Daytona Beach, FL\end{twocolentry}
+
+\vspace{0.06 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Designed and evaluated a guarded, tool-using LLM agent (5 tools, 5-guardrail stack) for anomaly triage; evaluated 8 agent configurations across 480 adversarial test cases.
+        \item Designed a guardrail ablation study cutting prompt-injection success from 100\% to 0\% and raising safe-behavior compliance from 22\% to 100\%.
+        \item Built an anomaly-detection pipeline (Isolation Forest, z-score baselines) over 142K+ satellite telemetry rows; found and fixed an AUC evaluation bug inflating results to 0.98, correcting to 0.73.
+    \end{highlights}
+\end{onecolentry}
+
+\begin{twocolentry}{
+    June 2025 -- May 2026
+}
+    \textbf{Software Engineer Intern}, Metrical.al -- San Francisco, CA\end{twocolentry}
+
+\vspace{0.06 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Built and evaluated a promo-response modeling workflow that improved checkout-targeting performance by 0.135 AUC through feature engineering and model comparison.
+        \item Architected high-performance distributed systems with modular architecture, improving system reliability by 40\% for enterprise-scale applications
+        \item Developed comprehensive full-stack solution supporting CLI, REST API, and web interfaces, optimizing for sub-50ms latency performance
+    \end{highlights}
+\end{onecolentry}
+
+\begin{twocolentry}{
+    May 2024 -- May 2025
+}
+    \textbf{Software Engineer Intern}, Sandia National Labs -- Albuquerque, NM\end{twocolentry}
+
+\vspace{0.06 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Developed Python algorithms leveraging advanced data structures and optimized computer architecture, achieving 10x throughput improvement for high-volume data processing
+        \item Implemented high-performance messaging systems within distributed cloud infrastructure, reducing data processing latency by 35\% for cybersecurity applications
+        \item Engineered API integration systems connecting Large Language Models, enabling seamless cross-platform communication for 5+ development teams
+    \end{highlights}
+\end{onecolentry}
+
+\section{Projects}
+
+\begin{twocolentry}{
+    \href{https://amin9666.github.io/Premier_League_Prediction_26/}{Demo} $|$ August 2026
+}
+    \textbf{Premier League Predictor}\end{twocolentry}
+
+\vspace{0.06 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Implemented Quantum Amplitude Estimation (Qiskit) on a real model probability, demonstrating QAE's theoretical quadratic query-complexity speedup over classical Monte Carlo sampling.
+        \item Built a Premier League predictor combining a Dixon-Coles time-decayed Poisson model with Monte Carlo simulation, validated via 3-season backtesting against closing betting-market odds.
+        \item Evaluated 9 candidate model improvements via rigorous backtest-driven A/B testing, keeping only statistically validated gains and documenting rejected hypotheses.
+    \end{highlights}
+\end{onecolentry}
+
+\begin{twocolentry}{
+    \href{https://github.com/Amin9666/xPTS-Shot-Quality-Model}{GitHub} $|$ May 2026
+}
+    \textbf{xPTS Shot Quality Model}\end{twocolentry}
+
+\vspace{0.06 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Developed an NBA shot quality model that estimates expected points for each shot attempt using contextual features such as shot distance, angle, game clock, and pressure.
+        \item Combined together the full analytics workflow in one reproducible project, including shot data collection, feature engineering, baseline modeling, evaluation metrics, and visual outputs such as shot charts and calibration views.
+    \end{highlights}
+\end{onecolentry}
+
+\begin{twocolentry}{
+    \href{https://amin9666.github.io/Mens_Open_Quantum_26/}{Demo} $|$ September 2026
+}
+    \textbf{Quantum Tennis Predictor}\end{twocolentry}
+
+\vspace{0.06 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Built a quantum-computing predictor for the US Open 2026 men's singles draw, encoding rank, form, and fatigue as qubit rotations entangled onto a decision qubit via chained controlled rotations, run on Qiskit's Aer simulator over 8192 shots.
+        \item Predicted each round blind from only the prior round's results; validated against real outcomes, correctly calling 16 of 20 (80\%) completed Round 2 matches.
+    \end{highlights}
+\end{onecolentry}
+
+\section{Technical Skills}
+
+\begin{onecolentry}
+    \textbf{Languages:} Python, C, SQL, JavaScript
+\end{onecolentry}
+
+\vspace{0.14 cm}
+
+\begin{onecolentry}
+    \textbf{Frameworks \& Tools:} TensorFlow, Qiskit, PostgreSQL, Docker, REST APIs, Git
+\end{onecolentry}
+
+\vspace{0.14 cm}
+
+\begin{onecolentry}
+    \textbf{Technical Areas:} Machine Learning, Quantum Computing, Distributed Systems, Data Structures, Algorithms
+\end{onecolentry}
+
+\end{document}
